@@ -1,5 +1,7 @@
 package com.ssi;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 public class EmpSearch {
@@ -15,6 +17,12 @@ public class EmpSearch {
 		System.out.println(emp.getLaptop().getBrand());
 		System.out.println(emp.getLaptop().getPrice());
 		
+		List<Project> projects=emp.getProjects();
+		
+		for(Project project:projects)
+		{
+			System.out.println(project);
+		}
 		session.close();
 	}
 

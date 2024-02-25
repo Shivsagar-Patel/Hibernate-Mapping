@@ -1,8 +1,11 @@
 package com.ssi;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -13,12 +16,33 @@ public class Emp {
 	private String ename;
 	private int sal;
 	
+	@ManyToMany
+	private List<Project> projects;
+	
+	
+	
 	@OneToOne(fetch=FetchType.LAZY)
 	private Laptop laptop;  //laptop_lcode
 
 	public Emp() {
 		super();
 	}
+
+	
+	
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+
+
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
+	}
+	
+	
+
+
 
 	@Override
 	public String toString() {
